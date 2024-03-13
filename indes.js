@@ -22,7 +22,7 @@ app.get("/",(req,res)=>{
 })
 app.post("/a",(req,res)=>{
     data=req.body
-    console.log(data.id)
+    console.log(data)
     connection.query("insert into employee set ?",data,(err,response)=>{
         if(err){res.send({msg:"error"})}
         else{res.send({msg:"sucess"})}
