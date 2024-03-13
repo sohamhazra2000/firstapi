@@ -22,14 +22,18 @@ app.get("/",(req,res)=>{
 })
 app.post("/a",(req,res)=>{
     data=req.body
-    let a;
-    connection.query("select * from employee where empid=?",data.empid,(err,response)=>{if(!err){a=1}else{a=0}})
-    if(a){(console.log("someting"))}
     connection.query("insert into employee set ?",data,(err,response)=>{
         if(err){res.send({msg:"error"})}
         else{res.send({msg:"sucess"})}
     })
+    
 })
+app.post("/aa",(req,res)=>{
+    data=req.body
+    connection.query("select * from employee where empid=?",data.id,(err,response)=>{
+        if(err){res.send({msg:"error"})}
+        else{res.send({msg:"sucess"})}
+    })})
 app.listen(ports,()=>{
     console.log("running")
 })
