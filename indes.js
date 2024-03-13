@@ -13,7 +13,7 @@ connection.connect((err)=>{
 })
 const app=express()
 app.use(express.json())
-const ports=process.env.P_ort
+const ports= 10000//process.env.P_ort
 app.get("/",(req,res)=>{
     connection.query("select * from employee",(err,response)=>{
         if(err){console.log("error is there")}
