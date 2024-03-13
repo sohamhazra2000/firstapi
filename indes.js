@@ -13,7 +13,7 @@ connection.connect((err)=>{
 })
 const app=express()
 app.use(express.json())
-const port=process.env.P_ort
+const ports=process.env.P_ort
 app.get("/",(req,res)=>{
     connection.query("select * from employee",(err,response)=>{
         if(err){console.log("error is there")}
@@ -27,6 +27,6 @@ app.post("/a",(req,res)=>{
         else{res.send({msg:"sucess"})}
     })
 })
-app.listen(port,()=>{
+app.listen(ports,()=>{
     console.log("running")
 })
