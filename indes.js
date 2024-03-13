@@ -32,7 +32,7 @@ app.post("/aa",(req,res)=>{
     data=req.body
     connection.query("select * from employee where empid=?",data.id,(err,response)=>{
         if(err){res.send({msg:"error"})}
-        else{res.send({msg:"sucess"})}
+        else{res.send(response)}
     })})
 app.listen(ports,()=>{
     console.log("running")
