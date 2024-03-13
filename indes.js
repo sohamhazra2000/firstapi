@@ -2,10 +2,10 @@ require('dotenv').config()
 const express=require("express")
 const sql=require("mysql")
 const connection=sql.createConnection({
-    host:process.env.host,
-    user:process.env.user,
-    password:process.env.password,
-    database:process.env.database
+    host:process.env.D_host,
+    user:process.env.D_user,
+    password:process.D_env.password,
+    database:process.D_env.database
 })
 connection.connect((err)=>{
     if(err){console.log("cooncevvt db not sucess")}
@@ -13,7 +13,7 @@ connection.connect((err)=>{
 })
 const app=express()
 app.use(express.json())
-const port=5000
+const port=5000||process.env.P_ort
 app.get("/",(req,res)=>{
     connection.query("select * from employee",(err,response)=>{
         if(err){console.log("error is there")}
