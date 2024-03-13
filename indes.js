@@ -4,8 +4,8 @@ const sql=require("mysql")
 const connection=sql.createConnection({
     host:process.env.D_host,
     user:process.env.D_user,
-    password:process.D_env.password,
-    database:process.D_env.database
+    password:process.env.D_password,
+    database:process.env.D_database
 })
 connection.connect((err)=>{
     if(err){console.log("cooncevvt db not sucess")}
