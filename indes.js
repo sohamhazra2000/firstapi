@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express=require("express")
 const sql=require("mysql")
+const cors=require('cors')
 const connection=sql.createConnection({
     host:process.env.D_host,
     user:process.env.D_user,
@@ -13,6 +14,7 @@ connection.connect((err)=>{
 })
 const app=express()
 app.use(express.json())
+app.use(cors())
 const ports= 10000//process.env.P_ort
 app.get("/",(req,res)=>{
     connection.query("select * from employee",(err,response)=>{
