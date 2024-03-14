@@ -17,14 +17,14 @@ app.use(express.json())
 app.use(cors())
 const ports= 10000//process.env.P_ort
 app.get("/",(req,res)=>{
-    connection.query("select * from employee",(err,response)=>{
+    connection.query("select * from employee2",(err,response)=>{
         if(err){console.log("error is there")}
         else{res.send(response)}
     })
 })
 app.post("/a",(req,res)=>{
     data=req.body
-    connection.query("insert into employee set ?",data,(err,response)=>{
+    connection.query("insert into employee2 set ?",data,(err,response)=>{
         if(err){res.send({msg:"error"})}
         else{res.send({msg:"sucess"})}
     })
@@ -32,7 +32,7 @@ app.post("/a",(req,res)=>{
 })
 app.post("/aa",(req,res)=>{
     data=req.body
-    connection.query("select * from employee where empid=?",data.id,(err,response)=>{
+    connection.query("select * from employee2 where empid=?",data.id,(err,response)=>{
         if(err){res.send({msg:"error"})}
         else{res.send(response)}
     })})
